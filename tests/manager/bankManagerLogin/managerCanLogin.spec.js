@@ -19,9 +19,6 @@ await bankHomePage.clickBankManagerLoginButton();
 await bankHomePage.waitForURL();
 await bankManagerMainPage.assertAddCustomerButtonIsVisible();
 await bankManagerMainPage.assertOpenAccountButtonIsVisible();
-await bankManagerMainPage.asserCustomersButtonIsVisible();
-
-
-
+await bankManagerMainPage.assertCustomersButtonIsVisible();
 
 });

@@ -3,11 +3,11 @@ import { expect } from '@playwright/test';
 export class CustomersListPage {
   constructor(page) {
     this.page = page;
-    this.lastRaw = page.locator("tbody tr").last();
-    this.deleteButton = this.lastRaw.getByRole("button", { name: "Delete" });
-    this.accountNumber = this.lastRaw.locator("td").nth(3);
+    this.lastRow = page.locator("tbody tr").last();
+    this.deleteButton = this.lastRow.getByRole("button", { name: "Delete" });
+    this.accountNumber = this.lastRow.locator("td").nth(3);
     this.searchCustomerField = page.getByPlaceholder('Search Customer');
-    this.raw = page.locator("tbody tr");
+    this.row = page.locator("tbody tr");
   }
 
   async open() {
@@ -31,36 +31,39 @@ export class CustomersListPage {
   }
 
   async assertCustomerFirstNameIsPresent(firstName) {
-    await expect(this.lastRaw).toContainText(firstName);
+    await expect(this.lastRow).toContainText(firstName);
   }
 
   async assertCustomerLastNameIsPresent(lastName) {
-    await expect(this.lastRaw).toContainText(lastName);
+    await expect(this.lastRow).toContainText(lastName);
   }
 
   async assertCustomerPostCodeIsPresent(postCode) {
-    await expect(this.lastRaw).toContainText(postCode);
+    await expect(this.lastRow).toContainText(postCode);
   }
 
   async assertCustomerRowIsNotVisible(firstName) {
-    await expect(this.lastRaw).not.toContainText(firstName);
+    await expect(this.lastRow).not.toContainText(firstName);
   }
 
   async assertAccountNumberNotEmpty() {
     await expect(this.accountNumber).toBeVisible();
   }
 
+  async assertAccountNumberIsEmpty() {
+    await expect(this.accountNumber).toContainText("");
+  }
+
   async assertCustomerRowIsPresent(firstNameOrLastName) {
-    await expect(this.raw).toContainText(firstNameOrLastName);
+    await expect(this.row).toContainText(firstNameOrLastName);
   }
 
   async assertCustomerRowWithPostCodeIsPresent(postCode) {
-    await expect(this.raw).toContainText(postCode);
+    await expect(this.row).toContainText(postCode);
   }
 
   async assertOnlyOneCustomerRowIsPresent() {
-   await expect(this.raw).toHaveCount(1);
+   await expect(this.row).toHaveCount(1);
 }
-
 
 }

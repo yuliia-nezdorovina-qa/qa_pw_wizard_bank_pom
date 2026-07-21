@@ -9,7 +9,6 @@ export class AddCustomerPage {
     this.addCustomerButton = page.getByRole('form').getByRole('button', { name: 'Add Customer' });
     this.customersButton = page.getByRole('button', { name: 'Customers' });
     this.openAccountButton = page.getByRole('button', { name: 'Open Account' });
-
   }
 
   async open() {
@@ -51,7 +50,6 @@ export class AddCustomerPage {
   }
 
   async assertValidationMessageForFirstName() {
-    await expect(this.firstName).toHaveJSProperty(
-    "validationMessage","Please fill out this field.")
-};
+    await expect(this.firstName).toHaveJSProperty("validationMessage","Please fill out this field.");
+}
 }
