@@ -64,6 +64,5 @@ export class CustomersListPage {
 
   async assertOnlyOneCustomerRowIsPresent() {
    await expect(this.row).toHaveCount(1);
-}
-
+  }
 }

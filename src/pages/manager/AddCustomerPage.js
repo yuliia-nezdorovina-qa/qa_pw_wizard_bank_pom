@@ -51,5 +51,5 @@ export class AddCustomerPage {
 
   async assertValidationMessageForFirstName() {
     await expect(this.firstName).toHaveJSProperty("validationMessage","Please fill out this field.");
-}
+  }
 }

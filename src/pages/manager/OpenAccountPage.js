@@ -40,6 +40,5 @@ export class OpenAccountPage {
 
   async assertValidationMessageForCustomerNotSelected() {
     await expect(this.customerDropDown).toHaveJSProperty("validationMessage","Please select an item in the list.");
-}
   }
-
+}

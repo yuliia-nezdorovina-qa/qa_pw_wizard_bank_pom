@@ -25,7 +25,6 @@ test.beforeEach(async ({ page }) => {
  await addCustomerPage.fillLastName(lastName);
  await addCustomerPage.fillPostCode(postCode);
  await addCustomerPage.clickAddCustomerButton();
-
 });
 
 test('Assert manager can delete customer', async ({ page }) => {
@@ -43,5 +42,4 @@ test('Assert manager can delete customer', async ({ page }) => {
  await customersListPage.assertCustomerRowIsNotVisible(firstName);
  await page.reload();
  await customersListPage.assertCustomerRowIsNotVisible(firstName);
-
 });
